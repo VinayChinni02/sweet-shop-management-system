@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 // CORS configuration - allow frontend URLs
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*', // Allow all origins in development, specific URL in production
+  origin: process.env.FRONTEND_URL || [
+    'http://localhost:5173',
+    'https://sweet-shop-management-system-pi.vercel.app',
+    'https://*.vercel.app'
+  ], // Allow localhost, Vercel frontend, and all Vercel preview deployments
   credentials: true,
 };
 app.use(cors(corsOptions));
