@@ -17,6 +17,7 @@
     "start": "node dist/server.js",
     "seed": "ts-node src/scripts/seedSweets.ts",
     "create-admin": "ts-node src/scripts/createAdmin.ts",
+    "promote-admin": "ts-node src/scripts/promoteToAdmin.ts",
     "view-db": "ts-node src/scripts/viewDatabase.ts",
     "query-db": "ts-node src/scripts/queryDb.ts"
   },
