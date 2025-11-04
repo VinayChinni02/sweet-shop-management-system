@@ -14,7 +14,6 @@
     "test:backend": "jest",
     "test:frontend": "cd frontend && npm test",
     "start": "node dist/server.js",
-    "postinstall": "npm run build:backend",
     "seed": "ts-node src/scripts/seedSweets.ts",
     "create-admin": "ts-node src/scripts/createAdmin.ts",
     "view-db": "ts-node src/scripts/viewDatabase.ts",
