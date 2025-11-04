@@ -1,0 +1,58 @@
+{
+  "name": "sweet-shop-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack Sweet Shop Management System with RESTful API and React frontend",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "nodemon --exec ts-node src/server.ts",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "tsc",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "jest",
+    "test:frontend": "cd frontend && npm test",
+    "start": "node dist/server.js",
+    "postinstall": "npm run build:backend",
+    "seed": "ts-node src/scripts/seedSweets.ts",
+    "create-admin": "ts-node src/scripts/createAdmin.ts",
+    "view-db": "ts-node src/scripts/viewDatabase.ts",
+    "query-db": "ts-node src/scripts/queryDb.ts"
+  },
+  "keywords": [
+    "sweet-shop",
+    "management-system",
+    "tdd",
+    "rest-api",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.10.6",
+    "@types/cors": "^2.8.17",
+    "@types/jest": "^29.5.11",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "supertest": "^6.3.3",
+    "@types/supertest": "^6.0.2",
+    "concurrently": "^8.2.2"
+  }
+}
+

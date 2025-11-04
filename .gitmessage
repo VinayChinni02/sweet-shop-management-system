@@ -1,0 +1,35 @@
+# Git Commit Message Template
+
+## Format
+```
+<type>: <subject>
+
+<body (optional)>
+
+Co-authored-by: Cursor AI <cursor@users.noreply.github.com>
+```
+
+## Types
+- feat: New feature
+- fix: Bug fix
+- docs: Documentation changes
+- style: Code style changes (formatting, etc.)
+- refactor: Code refactoring
+- test: Adding or updating tests
+- chore: Maintenance tasks
+
+## Example
+```
+feat: Add shopping cart functionality
+
+Implemented CartContext for managing cart state with localStorage persistence.
+Added Cart and Payment pages for complete e-commerce flow.
+
+- Created CartContext with add/remove/update functionality
+- Added Cart page with order summary
+- Implemented Payment page with multiple payment methods
+- Updated SweetCard to use "Add to Cart" instead of direct purchase
+
+Co-authored-by: Cursor AI <cursor@users.noreply.github.com>
+```
+
