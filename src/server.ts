@@ -14,11 +14,27 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 // CORS configuration - allow frontend URLs
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || [
-    'http://localhost:5173',
-    'https://sweet-shop-management-system-pi.vercel.app',
-    'https://*.vercel.app'
-  ], // Allow localhost, Vercel frontend, and all Vercel preview deployments
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Allow specific frontend URL from environment
+    if (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL) {
+      return callback(null, true);
+    }
+    
+    // Allow localhost for development
+    if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+      return callback(null, true);
+    }
+    
+    // Allow all Vercel deployments (production and preview)
+    if (origin.includes('.vercel.app')) {
+      return callback(null, true);
+    }
+    
+    callback(null, true); // Allow all origins for now (can be restricted later)
+  },
   credentials: true,
 };
 app.use(cors(corsOptions));
